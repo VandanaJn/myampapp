@@ -1,0 +1,19 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "myampapp-20190323200813-authRole",
+            "UnauthRoleArn": "arn:aws:iam::664277651473:role/myampapp-20190323200813-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::664277651473:role/myampapp-20190323200813-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "myampapp-20190323200813-deployment",
+            "UnauthRoleName": "myampapp-20190323200813-unauthRole",
+            "StackName": "myampapp-20190323200813",
+            "StackId": "arn:aws:cloudformation:us-east-1:664277651473:stack/myampapp-20190323200813/e8ef5df0-4dc8-11e9-ac6a-0eb2970e4f5e"
+        },
+        "categories": {
+            "auth": {
+                "cognitoe69a5f5a": {}
+            }
+        }
+    }
+}
