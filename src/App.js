@@ -12,10 +12,10 @@ class App extends Component {
   constructor() {
     super()
     this.state = { todos: [] }
-    this.refreshToDo=this.refreshToDo.bind(this)
+    this.refreshToDo = this.refreshToDo.bind(this)
   }
 
-  async refreshToDo(){
+  async refreshToDo() {
     const data = await API.graphql(graphqlOperation(listTodos))
     this.setState({
       todos: data.data.listTodos.items
@@ -31,8 +31,8 @@ class App extends Component {
 
     return (
       <div>
-        <TodoForm refreshToDo={this.refreshToDo}/>
-        <DisplayTodos todos={this.state.todos}  />
+        <TodoForm refreshToDo={this.refreshToDo} />
+        <DisplayTodos todos={this.state.todos} refreshToDo={this.refreshToDo} />
       </div>
     );
   }

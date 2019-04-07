@@ -15,14 +15,14 @@ class TodoForm extends Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
-   async  AddTodo(event) {
-         event.preventDefault()
+    async  AddTodo(event) {
+        event.preventDefault()
         try {
             await API.graphql(
                 graphqlOperation(
                     createTodo, {
                         input:
-                            { name: this.state.name, description:this.state.description}
+                            { name: this.state.name, description: this.state.description }
                     }
                 ))
             this.props.refreshToDo()
