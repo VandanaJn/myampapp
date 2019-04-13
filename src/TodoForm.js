@@ -4,6 +4,7 @@ import { createTodo, deleteTodo, updateTodo } from './graphql/mutations'
 import Button from 'react-bootstrap/Button';
 
 
+
 class TodoForm extends Component {
 
     constructor(props) {
@@ -89,15 +90,17 @@ class TodoForm extends Component {
             formDiv =
                 <form>
                     <input type="text" placeholder="Task name" name="name" value={this.state.name} onChange={this.handleChange} />
-                    <input type="text" placeholder="Description" name="description" value={this.state.description} onChange={this.handleChange} />
-                    <Button variant="link" onClick={this.addTodo}>Add ToDo</Button>
+                    <input type="text" placeholder="Task Description" name="description" value={this.state.description} onChange={this.handleChange} />
+                    <Button variant="link" onClick={this.addTodo}>Add Item</Button>
+                    <hr/>
                 </form>
+                
         } else {
             formDiv =
                 <form>
                     <input type="text" placeholder="Task name" name="name" value={this.state.name} onChange={this.handleChange} />
                     <input type="text" placeholder="Description" name="description" value={this.state.description} onChange={this.handleChange} />
-                    <Button variant="link" onClick={this.updateTodo}>Update ToDo</Button>
+                    <Button variant="link" onClick={this.updateTodo}>Update</Button>
                     <Button variant="link" onClick={this.deleteTodo}>Delete</Button>
                 </form>
         }

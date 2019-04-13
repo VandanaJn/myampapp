@@ -6,7 +6,8 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { listTodos } from './graphql/queries'
 import DisplayTodos from './DisplayTodos';
 import TodoForm from './TodoForm';
-import  Container  from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 class App extends Component {
   constructor() {
@@ -30,14 +31,19 @@ class App extends Component {
   render() {
 
     return (
-      
+
       <div>
+        <Container fluid >
+          <Jumbotron fluid>
+            <h1> To do Application</h1>
+          </Jumbotron>
+        </Container>
         <Container>
-        <TodoForm refreshToDo={this.refreshToDo} />
-        <DisplayTodos todos={this.state.todos} refreshToDo={this.refreshToDo} />
+          <TodoForm refreshToDo={this.refreshToDo} />
+          <DisplayTodos todos={this.state.todos} refreshToDo={this.refreshToDo} />
         </Container>
       </div>
-     
+
     );
   }
 }
