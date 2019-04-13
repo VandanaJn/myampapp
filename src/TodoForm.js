@@ -4,9 +4,9 @@ import { createTodo, deleteTodo, updateTodo } from './graphql/mutations'
 
 class TodoForm extends Component {
 
-    constructor() {
-        super()
-        this.state = { id: '', name: '', description: '', insert: true }
+    constructor(props) {
+        super(props)
+        this.state = { id: null, name: '', description: '', insert: true }
         this.handleChange = this.handleChange.bind(this)
         this.addTodo = this.addTodo.bind(this)
         this.updateTodo = this.updateTodo.bind(this)
@@ -14,12 +14,15 @@ class TodoForm extends Component {
     }
 
     async componentDidMount() {
-        this.setState({
-            id: this.props.id,
-            name: this.props.name,
-            description: this.props.description,
-            insert: this.props.id === undefined ? true : false
-        })
+        
+        if (this.props.name !== undefined) {
+            this.setState({
+                id: this.props.id,
+                name: this.props.name,
+                description: this.props.description,
+                insert: this.props.id === undefined ? true : false
+            })
+        }
     }
 
     handleChange(event) {
@@ -37,9 +40,7 @@ class TodoForm extends Component {
                     }
                 ))
             this.props.refreshToDo()
-            console.log('before set state')
             this.setState({ id: '', name: '', description: '', insert: true })
-            console.log('after set state')
 
         } catch (err) {
             console.log('error: ', err)
@@ -85,15 +86,15 @@ class TodoForm extends Component {
         if (this.state.insert) {
             formDiv =
                 <form>
-                    <input type="text" placeholder="Task name"  name="name" value={this.state.name} onChange={this.handleChange} />
+                    <input type="text" placeholder="Task name" name="name" value={this.state.name} onChange={this.handleChange} />
                     <input type="text" placeholder="Description" name="description" value={this.state.description} onChange={this.handleChange} />
                     <button onClick={this.addTodo}>Add ToDo</button>
                 </form>
         } else {
             formDiv =
                 <form>
-                    <input type="text" placeholder="Task name"  name="name" value={this.state.name} onChange={this.handleChange} />
-                    <input type="text" placeholder="Description"  name="description" value={this.state.description} onChange={this.handleChange} />
+                    <input type="text" placeholder="Task name" name="name" value={this.state.name} onChange={this.handleChange} />
+                    <input type="text" placeholder="Description" name="description" value={this.state.description} onChange={this.handleChange} />
                     <button onClick={this.updateTodo}>Update ToDo</button>
                     <button onClick={this.deleteTodo}>Delete</button>
                 </form>
