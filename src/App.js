@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import { withAuthenticator } from 'aws-amplify-react';
@@ -42,4 +41,3 @@ export default withAuthenticator(App, {
   // Render a sign out button once logged in
   includeGreetings: true,
 });
-// export default App
