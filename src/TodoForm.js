@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { API, graphqlOperation } from 'aws-amplify';
 import { createTodo, deleteTodo, updateTodo } from './graphql/mutations'
+import Button from 'react-bootstrap/Button';
+
 
 class TodoForm extends Component {
 
@@ -88,15 +90,15 @@ class TodoForm extends Component {
                 <form>
                     <input type="text" placeholder="Task name" name="name" value={this.state.name} onChange={this.handleChange} />
                     <input type="text" placeholder="Description" name="description" value={this.state.description} onChange={this.handleChange} />
-                    <button onClick={this.addTodo}>Add ToDo</button>
+                    <Button variant="link" onClick={this.addTodo}>Add ToDo</Button>
                 </form>
         } else {
             formDiv =
                 <form>
                     <input type="text" placeholder="Task name" name="name" value={this.state.name} onChange={this.handleChange} />
                     <input type="text" placeholder="Description" name="description" value={this.state.description} onChange={this.handleChange} />
-                    <button onClick={this.updateTodo}>Update ToDo</button>
-                    <button onClick={this.deleteTodo}>Delete</button>
+                    <Button variant="link" onClick={this.updateTodo}>Update ToDo</Button>
+                    <Button variant="link" onClick={this.deleteTodo}>Delete</Button>
                 </form>
         }
 
